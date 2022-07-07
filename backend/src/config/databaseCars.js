@@ -9,7 +9,7 @@ const sequelize = new Sequelize(database, username, password, {
   dialect: "mariadb",
 });
 
-const models = [require("../models/Users")].map((m) => m(sequelize));
+const models = [require("../models/Cars")].map((m) => m(sequelize));
 
 sequelize.sync().then("Banco de dados sincronizado!");
 

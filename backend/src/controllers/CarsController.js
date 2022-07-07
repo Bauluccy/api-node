@@ -1,4 +1,4 @@
-const { models } = require("../config/database");
+const { models } = require("../config/databaseCars");
 const Car = models.Cars;
 const path = require("path");
 
@@ -18,8 +18,8 @@ class CarsController {
   async read(req, res) {
     try {
       const id = req.params.id;
-      const cars = await Car.findByPk(parseInt(id));
-      return res.status(200).send({ cars: cars });
+      const car = await Car.findByPk(parseInt(id));
+      return res.status(200).send({ car: car });
     } catch (e) {
       return res.status(500).json({
         error: e,
@@ -93,4 +93,4 @@ class CarsController {
   }
 }
 
-module.exports = new UsersController();
+module.exports = new CarsController();
