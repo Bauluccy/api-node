@@ -1,24 +1,26 @@
 .records{
     width: 100%;
     user-select: none;
-    text-align: left;
+    /* text-align: left; */
 }
 
 .records th{
     height: 50px;
     background-color: var(--primary-color);
-    padding-left: 20px;
+    text-align: center;
+    padding-left: 0px;
     font-size: 1.2rem;    
 }
 .records td{
     height: 50px;
-    padding-left: 20px;
+    text-align: center;
+    padding-left: 0px;
 }
 
 .records th:last-child,
 .records td:last-child{
     padding: 0;
-    min-width: 140px;
+    min-width: 14px;
     text-align: center;
 }
 
