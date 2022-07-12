@@ -26,10 +26,10 @@ export default function Home() {
                       buttons.button,
                       buttons.green
                     )}>Usuários</button>
-                  </Link>
-                  {/* <Link href=>
+                  </Link >
+                   <Link href="/cars/list">
                     <a>Carros</a>
-                  </Link> */}
+                  </Link>
               </ul>
             </nav>
           </main>
