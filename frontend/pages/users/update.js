@@ -1,18 +1,19 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
-import ListUsers from "./list";
+// import ListUsers from "./list";
 
 export default function UpdateUser() {
  
   const [users, setUsers] = useState();
+  const [user, setUser] = useState({ name: "", idade: 0 });
   const [loadUsers, setLoadUsers] = useState(true);
-  const [userID, setUserID] = useState();
+  const [userId, setUserID] = useState();
 
   async function getUsers() {
     api.get("/users").then((res) => {
       const { data } = res;
       setUsers(data.users);
-    });
+    });daw
   }
   
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function UpdateUser() {
       setUser({ name: value, idade: user.idade });
     }
 
-    if (e.target.name === "idade") {
+    if (e.target.idade === "idade") {
       setUser({ name: user.name, idade: parseInt(value) });
     }
   }
@@ -55,7 +56,7 @@ export default function UpdateUser() {
 
   return (
     <div>
-      <h1>Criar Usuário</h1>
+      <h1>Alterar Usuário</h1>
 
       <form onChange={(e) => onChange(e)}>
       <select name="usuarioEscolhido" onChange={onChange} defaultValue="DEFAULT">
@@ -74,7 +75,7 @@ export default function UpdateUser() {
         <input type="number" name="idade"></input>
       </form>
 
-      <button onClick={() => createUser()}>Criar usuário</button>
+      <button onClick={() => UpdateUser()}>Alterar usuário</button>
 
       <footer>
         <a href="/users/list">Voltar para lista de usuários</a>
