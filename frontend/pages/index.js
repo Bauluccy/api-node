@@ -27,14 +27,19 @@ export default function Home() {
                       buttons.green
                     )}>Usuários</button>
                   </Link >
+                  <br></br>
                    <Link href="/cars/list">
-                    <a>Carros</a>
+                    <button className={classnames(
+                      buttons.button,
+                      buttons.red
+                    )}>
+                    Carros</button>
                   </Link>
               </ul>
             </nav>
           </main>
 
-        <footer>
+        <footer className={style.footer}>
           <p>API Desenvolvida na cadeira de Programação WEB</p>
         </footer>
       </div>

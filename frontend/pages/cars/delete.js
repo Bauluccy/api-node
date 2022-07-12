@@ -15,7 +15,7 @@ export default function DeleteCar() {
 
   async function deleteCar() {
     api
-      .delete(`/cars/${carID}`)
+      .delete(`/cars/${CarID}`)
       .then(() => {
         alert("Carro removido!");
         setLoadCars(true);

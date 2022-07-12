@@ -1,5 +1,7 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import style from './index.module.css'
+import buttons from './buttons.module.css'
 
 export default function ListUsers() {
   const [users, setUsers] = useState();
@@ -20,7 +22,7 @@ export default function ListUsers() {
   console.log(users);
   return (
     <div>
-      <h1>Usuários</h1>
+      <h1 className={style.header}>Usuários</h1>
       <table>
         <thead>
           <tr>
