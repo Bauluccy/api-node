@@ -2,7 +2,7 @@ import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import classnames from 'classnames'
-import style from './index.module.css'
+import style from './users.module.css'
 import buttons from './buttons.module.css'
 
 export default function DeleteUser() {
@@ -51,8 +51,9 @@ export default function DeleteUser() {
             return <option value={user.id}>{user.name}</option>;
           })}
         </select>
-
-      <button type="button" onClick={() => deleteUser()}>Deletar usuário</button>
+        <br></br>
+        <br></br>
+      <button type="button" className={buttons.red} onClick={() => deleteUser()}>Deletar usuário</button>
       <br></br>
       <br></br>
       <Link href="/users/list">

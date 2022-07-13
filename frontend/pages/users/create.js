@@ -2,7 +2,7 @@ import api from "../../services/api";
 import { useState } from "react";
 import Link from "next/link";
 import classnames from 'classnames'
-import style from './index.module.css'
+import style from './users.module.css'
 import buttons from './buttons.module.css'
 
 export default function CreateUser() {
@@ -47,7 +47,7 @@ export default function CreateUser() {
           <br></br>
           
             
-        <button type="button" onClick={() => createUser()}>Criar usuário</button>
+        <button type="button" className={buttons.green}onClick={() => createUser()}>Criar usuário</button>
             <br></br>
             <br></br>
   

@@ -1,7 +1,7 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import style from './index.module.css'
+import style from './users.module.css'
 import classnames from 'classnames'
 import buttons from './buttons.module.css'
 

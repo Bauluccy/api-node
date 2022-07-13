@@ -2,7 +2,8 @@ import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import classnames from 'classnames'
-import style from './index.module.css'
+import style from './users.module.css'
+import buttons from './buttons.module.css'
 
 export default function UpdateUser() {
   const [user, setUser] = useState({ name: "", idade: 0 });
@@ -58,8 +59,7 @@ export default function UpdateUser() {
     <div>
         <h1 className={style.header}>Selecione um usuário para atualizar</h1>
       <form className={style.div}onChange={(e) => onChange(e)}>
-          <h1>Insira os dados para atualizar</h1>
-        <select name="selectedUser" defaultValue="DEFAULT">
+        <select className={style.selectRight}name="selectedUser" defaultValue="DEFAULT">
           <option value="DEFAULT" disabled>
             Selecione um usuário
           </option>
@@ -75,7 +75,7 @@ export default function UpdateUser() {
       <br />
       <br />
       <br />
-      <button type="button" onClick={() => updateUser()}>Atualizar usuário</button>
+      <button type="button" className={buttons.yellow} onClick={() => updateUser()}>Atualizar usuário</button>
 
         <br />
         <br />

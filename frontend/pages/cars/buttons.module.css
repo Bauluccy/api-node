@@ -22,6 +22,16 @@ button.red{
     background-color: #FF4949;
 }
 
+button.yellow{
+    background-color: #ffee91;
+    color: black;
+}
+
+button.darkGray{
+    background-color: rgb(73, 68, 68);
+    color: white
+}
+
 .button:hover{
     box-shadow: inset 200px 0 0 #00000055;
 }

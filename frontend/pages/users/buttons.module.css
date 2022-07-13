@@ -25,6 +25,15 @@ button.red{
     background-color: #FF4949;
 }
 
+button.gray{
+    background-color: #A3C9CC;
+}
+
+button.yellow{
+    background-color: #ffee91;
+    color: black;
+}
+
 .button:hover{
     box-shadow: inset 200px 0 0 #00000055;
 }

@@ -2,7 +2,7 @@ import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import classnames from 'classnames'
-import style from './index.module.css'
+import style from './cars.module.css'
 import buttons from './buttons.module.css'
 
 export default function DeleteCar() {
@@ -53,7 +53,7 @@ export default function DeleteCar() {
         </select>
         <br/>
         <br/>
-      <button type="button" onClick={() => deleteCar()}>Deletar Carro</button>
+      <button className={buttons.red} type="button" onClick={() => deleteCar()}>Deletar Carro</button>
       <br/>
       <br/>
       <Link href="/cars/list">
