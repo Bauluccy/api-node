@@ -1,5 +1,9 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import style from './index.module.css'
+import classnames from 'classnames'
+import buttons from './buttons.module.css'
 
 export default function ListCars() {
   const [cars, setCars] = useState();
@@ -20,8 +24,8 @@ export default function ListCars() {
   console.log(cars);
   return (
     <div>
-      <h1>Carros</h1>
-      <table>
+      <h1 className={style.header}>Carros</h1>
+      <table className={style.records}>
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -31,32 +35,29 @@ export default function ListCars() {
             <th scope="col">Ano</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={classnames(
+          style.records,
+          style.white
+        )}>
           {cars?.map((car) => {
             return (
               <tr>
-                <td>{car.id}</td>
-                <td>{car.modelo}</td>
-                <td>{car.cor}</td>
-                <td>{car.marca}</td>
-                <td>{car.ano}</td>
+                <th>{car.id}</th>
+                <th>{car.modelo}</th>
+                <th>{car.cor}</th>
+                <th>{car.marca}</th>
+                <th>{car.ano}</th>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <footer>
+      <footer className={style.centerButtons}>
         <br />
-        <a href="/">Voltar para home</a>
-        <br />
-        <br />
-        <a href="/cars/create">Criar carro</a>
-        <br />
-        <br />
-        <a href="/cars/update">Atualizar carro</a>
-        <br />
-        <br />
-        <a href="/cars/delete">Deletar carro</a>
+        <Link href="/"><button>Voltar para home</button></Link>
+        <Link href="/cars/create"><button>Adicionar carro</button></Link>
+        <Link href="/cars/update"><button>Atualizar carro</button></Link>
+        <Link href="/cars/delete"><button >Deletar carro</button></Link>
       </footer>
     </div>
   );

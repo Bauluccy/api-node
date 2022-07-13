@@ -19,7 +19,7 @@
 }
 
 .div button{
-    background-color: dodgerblue;
+    background-color: red;
             border: none;
             padding: 15px;
             width: 100%;
@@ -63,7 +63,7 @@
     margin-left: -10%;
     margin-right: -10%;
     /* margin-top: -0.24em; */
-    background-color: #1FB6FF;
+    background-color: #ff1f1f;
     height: 70px;
     text-align: center;
     line-height: 70px;
@@ -90,13 +90,13 @@
     text-align: center;
     font-family: fantasy;
     line-height: 60px;
-    background-color: #1FB6FF;
+    background-color: #ff1f1f;
 
 }
 
 .records th{
     height: 50px;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     
     padding-left: 0px;
     font-size: 1.2rem;    

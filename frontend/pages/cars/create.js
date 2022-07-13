@@ -1,5 +1,10 @@
 import api from "../../services/api";
 import { useState } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
+import buttons from './buttons.module.css'
+
 
 export default function CreateCar() {
   const [car, setCar] = useState({ modelo: "", cor: "", marca: "", ano: 0 });
@@ -40,9 +45,9 @@ export default function CreateCar() {
 
   return (
     <div>
-      <h1>Adicionar Carro</h1>
+      <h1 className={style.header}>Adicionar Carro</h1>
 
-      <form onChange={(e) => onChange(e)}>
+      <form className={style.div} onChange={(e) => onChange(e)}>
         <label htmlFor="modelo">Modelo</label>
         <input type="text" name="modelo"></input>
 
@@ -54,13 +59,15 @@ export default function CreateCar() {
 
         <label htmlFor="ano">Ano</label>
         <input type="number" name="ano"></input>
+        <br />
+        <br />
+        <button type="button" onClick={() => createCar()}>Adicionar Carro</button>
+        <br />
+        <br />
+        <Link href="/cars/list">
+              <button>Voltar para carros</button>
+        </Link>
       </form>
-
-      <button onClick={() => createCar()}>Adicionar Carro</button>
-
-      <footer>
-        <a href="/cars/list">Voltar para lista de carros</a>
-      </footer>
     </div>
   );
 }

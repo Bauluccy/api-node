@@ -1,5 +1,8 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
 
 export default function UpdateCar() {
   const [car, setCar] = useState({ modelo: "", cor: "", marca: "", ano: 0 });
@@ -61,10 +64,10 @@ export default function UpdateCar() {
 
   return (
     <div>
-      <h1>Adicionar Carro</h1>
+      <h1 className={style.header}>Selecione um carro para atualizar</h1>
 
-      <form onChange={(e) => onChange(e)}>
-        <h1>Selecione um carro para atualizar</h1>
+      <form className={style.div} onChange={(e) => onChange(e)}>
+          <h1>Insira os dados para atualizar</h1>
         <select name="selectedCar" defaultValue="DEFAULT">
           <option value="DEFAULT" disabled>
             Selecione um carro
@@ -73,7 +76,6 @@ export default function UpdateCar() {
             return <option value={car.id}>{car.modelo}</option>;
           })}
         </select>
-        <h1>Insira os dados para atualizar</h1>
         <label htmlFor="modelo">Modelo</label>
         <input type="text" name="modelo"></input>
 
@@ -85,17 +87,16 @@ export default function UpdateCar() {
 
         <label htmlFor="ano">Ano</label>
         <input type="number" name="ano"></input>
+      <br />
+      <br />
+      <br />
+      <button type="button" onClick={() => updateCar()}>Atualizar carro</button>
+        <br />
+        <br />
+        <Link href="/cars/list">
+              <button>Voltar para carros</button>
+        </Link>
       </form>
-      <br />
-      <br />
-      <br />
-      <button onClick={() => updateCar()}>Atualizar carro</button>
-
-      <footer>
-        <br />
-        <br />
-        <a href="/cars/list">Voltar para lista de carros</a>
-      </footer>
     </div>
   );
 }

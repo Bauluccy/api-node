@@ -1,5 +1,9 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
+import buttons from './buttons.module.css'
 
 export default function DeleteCar() {
   const [cars, setCars] = useState();
@@ -37,8 +41,8 @@ export default function DeleteCar() {
   // console.log(carID);
   return (
     <div>
-      <h1>Deletar Carro</h1>
-      <form>
+      <h1 className={style.header}>Deletar Carro</h1>
+      <form className={style.div}>
         <select onChange={onChange} defaultValue="DEFAULT">
           <option value="DEFAULT" disabled>
             Selecione um carro
@@ -47,13 +51,15 @@ export default function DeleteCar() {
             return <option value={car.id}>{car.modelo}</option>;
           })}
         </select>
+        <br/>
+        <br/>
+      <button type="button" onClick={() => deleteCar()}>Deletar Carro</button>
+      <br/>
+      <br/>
+      <Link href="/cars/list">
+        <button>Voltar para carros</button>
+      </Link>
       </form>
-
-      <button onClick={() => deleteCar()}>Deletar Carro</button>
-
-      <footer>
-        <a href="/cars/list">Voltar para lista de carros</a>
-      </footer>
     </div>
   );
 }
