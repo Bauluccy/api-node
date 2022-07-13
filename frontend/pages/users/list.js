@@ -1,6 +1,8 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import style from './index.module.css'
+import classnames from 'classnames'
 import buttons from './buttons.module.css'
 
 export default function ListUsers() {
@@ -23,7 +25,7 @@ export default function ListUsers() {
   return (
     <div>
       <h1 className={style.header}>Usuários</h1>
-      <table>
+      <table className={style.records}>
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -31,7 +33,10 @@ export default function ListUsers() {
             <th scope="col">Idade</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={classnames(
+          style.records,
+          style.white
+        )}>
           {users?.map((user) => {
             return (
               <tr>
@@ -43,18 +48,14 @@ export default function ListUsers() {
           })}
         </tbody>
       </table>
-      <footer>
+      <footer className={classnames(
+        style.centerButtons,
+      )}>
         <br />
-        <a href="/">Voltar para home</a>
-        <br />
-        <br />
-        <a href="/users/create">Criar usuário</a>
-        <br />
-        <br />
-        <a href="/users/update">Atualizar usuário</a>
-        <br />
-        <br />
-        <a href="/users/delete">Deletar usuário</a>
+        <Link href="/"><button>Voltar para home</button></Link>
+        <Link href="/users/create"><button>Criar usuário</button></Link>
+        <Link href="/users/update"><button>Atualizar usuário</button></Link>
+        <Link href="/users/delete"><button >Deletar usuário</button></Link>
       </footer>
     </div>
   );

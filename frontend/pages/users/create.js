@@ -1,5 +1,9 @@
 import api from "../../services/api";
 import { useState } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
+import buttons from './buttons.module.css'
 
 export default function CreateUser() {
   const [user, setUser] = useState({ name: "", idade: 0 });
@@ -32,21 +36,27 @@ export default function CreateUser() {
 
   return (
     <div>
-      <h1>Criar Usuário</h1>
+      <h1 className={style.header}>Criar Usuário</h1>
+      
+        <form className={style.div} onChange={(e) => onChange(e)}>
+          <label htmlFor="name">Nome</label>
+          <input  type="text" name="name"></input>
+          <label htmlFor="name">Idade</label>
+          <input type="number" name="idade"></input>
+          <br></br>
+          <br></br>
+          
+            
+        <button type="button" onClick={() => createUser()}>Criar usuário</button>
+            <br></br>
+            <br></br>
+  
+            <Link href="/users/list">
+              <button>Voltar para usuários</button>
+            </Link>
+        </form>
 
-      <form onChange={(e) => onChange(e)}>
-        <label htmlFor="name">Nome</label>
-        <input type="text" name="name"></input>
-
-        <label htmlFor="name">Idade</label>
-        <input type="number" name="idade"></input>
-      </form>
-
-      <button onClick={() => createUser()}>Criar usuário</button>
-
-      <footer>
-        <a href="/users/list">Voltar para lista de usuários</a>
-      </footer>
+        
     </div>
   );
 }
