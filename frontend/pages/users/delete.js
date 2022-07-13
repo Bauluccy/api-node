@@ -1,5 +1,9 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
+import buttons from './buttons.module.css'
 
 export default function DeleteUser() {
   const [users, setUsers] = useState();
@@ -37,8 +41,8 @@ export default function DeleteUser() {
   console.log(userId);
   return (
     <div>
-      <h1>Deletar Usuário</h1>
-      <form>
+      <h1 className={style.header}>Deletar Usuário</h1>
+      <form className={style.div}>
         <select onChange={onChange} defaultValue="DEFAULT">
           <option value="DEFAULT" disabled>
             Selecione um usuário
@@ -47,13 +51,14 @@ export default function DeleteUser() {
             return <option value={user.id}>{user.name}</option>;
           })}
         </select>
+
+      <button type="button" onClick={() => deleteUser()}>Deletar usuário</button>
+      <br></br>
+      <br></br>
+      <Link href="/users/list">
+              <button>Voltar para usuários</button>
+      </Link>
       </form>
-
-      <button onClick={() => deleteUser()}>Deletar usuário</button>
-
-      <footer>
-        <a href="/users/list">Voltar para lista de usuários</a>
-      </footer>
     </div>
   );
 }

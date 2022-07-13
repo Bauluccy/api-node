@@ -1,5 +1,8 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import classnames from 'classnames'
+import style from './index.module.css'
 
 export default function UpdateUser() {
   const [user, setUser] = useState({ name: "", idade: 0 });
@@ -53,10 +56,9 @@ export default function UpdateUser() {
 
   return (
     <div>
-      <h1>Criar Usuário</h1>
-
-      <form onChange={(e) => onChange(e)}>
-        <h1>Selecione um usuário para atualizar</h1>
+        <h1 className={style.header}>Selecione um usuário para atualizar</h1>
+      <form className={style.div}onChange={(e) => onChange(e)}>
+          <h1>Insira os dados para atualizar</h1>
         <select name="selectedUser" defaultValue="DEFAULT">
           <option value="DEFAULT" disabled>
             Selecione um usuário
@@ -65,23 +67,22 @@ export default function UpdateUser() {
             return <option value={user.id}>{user.name}</option>;
           })}
         </select>
-        <h1>Insira os dados para atualizar</h1>
         <label htmlFor="name">Nome</label>
         <input type="text" name="name"></input>
 
         <label htmlFor="name">Idade</label>
         <input type="number" name="idade"></input>
-      </form>
       <br />
       <br />
       <br />
-      <button onClick={() => updateUser()}>Atualizar usuário</button>
+      <button type="button" onClick={() => updateUser()}>Atualizar usuário</button>
 
-      <footer>
         <br />
         <br />
-        <a href="/users/list">Voltar para lista de usuários</a>
-      </footer>
+        <Link href="/users/list">
+              <button>Voltar para usuários</button>
+            </Link>
+      </form>
     </div>
   );
 }

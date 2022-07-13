@@ -15,6 +15,7 @@
     border: none;
     outline: none;
     font-size: 15px;
+    border-radius: 20%;
 }
 
 .div button{
@@ -26,6 +27,19 @@
             color: white;
             font-size: 10px;
             transition: box-shadow .6s ease-in;
+}
+
+.div select{
+    color:black;
+    width: 100%;
+    max-width: 10rem;
+    margin: 1rem auto;
+    position: relative;
+    color: rgb(58, 57, 57);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 .div button:hover{
